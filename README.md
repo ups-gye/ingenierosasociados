@@ -1,5 +1,5 @@
 # ingenierosasociados
-Integrantes:
+# Integrantes:
 -Kevin Andrei Panchana Tomalá
 -Kevin Pául Alvarado Bajaña
 -Johana Nicole Del Pezo Calderón
