@@ -1,4 +1,4 @@
-# ingenierosasociados 🤕
+# ingenierosasociados 👨‍💼👩‍💻
 # Integrantes:
 -Kevin Andrei Panchana Tomalá
 
