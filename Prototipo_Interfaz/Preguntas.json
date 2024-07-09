@@ -1,0 +1,602 @@
+[
+    {
+        "question": "¿Qué es un soneto?",
+        "answers": [
+            [
+                "Poema de catorce versos",
+                5
+            ],
+            [
+                "Composición poética",
+                4
+            ],
+            [
+                "Forma fija de la poesía",
+                3
+            ],
+            [
+                "Versos de arte mayor",
+                2
+            ],
+            [
+                "Rima consonante",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es el género literario de La Ilíada?",
+        "answers": [
+            [
+                "Épico",
+                5
+            ],
+            [
+                "Poema épico",
+                4
+            ],
+            [
+                "Epopeya",
+                3
+            ],
+            [
+                "Literatura griega antigua",
+                2
+            ],
+            [
+                "Narrativa heroica",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una hipérbole?",
+        "answers": [
+            [
+                "Exageración intencional",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Lenguaje figurado",
+                3
+            ],
+            [
+                "Exageración",
+                2
+            ],
+            [
+                "Figura literaria",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es el tema principal de Romeo y Julieta?",
+        "answers": [
+            [
+                "Amor trágico",
+                5
+            ],
+            [
+                "El amor imposible",
+                4
+            ],
+            [
+                "La tragedia de los amantes",
+                3
+            ],
+            [
+                "La vida de Shakespeare",
+                2
+            ],
+            [
+                "Amor y muerte",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una metáfora?",
+        "answers": [
+            [
+                "Figura retórica",
+                5
+            ],
+            [
+                "Comparación implícita",
+                4
+            ],
+            [
+                "Lenguaje figurado",
+                3
+            ],
+            [
+                "Figura literaria",
+                2
+            ],
+            [
+                "Imaginación creativa",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió Cumandá?",
+        "answers": [
+            [
+                "Juan León Mera",
+                5
+            ],
+            [
+                "Novelista del siglo XIX",
+                4
+            ],
+            [
+                "Autor ecuatoriano",
+                3
+            ],
+            [
+                "Escritor ambateño",
+                2
+            ],
+            [
+                "Juan León",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es la obra más conocida de Gabriel García Márquez?",
+        "answers": [
+            [
+                "Cien años de soledad",
+                5
+            ],
+            [
+                "La historia de Macondo",
+                4
+            ],
+            [
+                "La saga de los Buendía",
+                3
+            ],
+            [
+                "El realismo mágico",
+                2
+            ],
+            [
+                "La novela del Nobel colombiano",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién es el autor de La Odisea?",
+        "answers": [
+            [
+                "Homero",
+                5
+            ],
+            [
+                "Poeta griego",
+                4
+            ],
+            [
+                "JEscritor de La Ilíada",
+                3
+            ],
+            [
+                "Bardo de la antigüedad",
+                2
+            ],
+            [
+                "Narrador de aventuras",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una anáfora?",
+        "answers": [
+            [
+                "Figura retórica",
+                5
+            ],
+            [
+                "Repetición de palabras",
+                4
+            ],
+            [
+                "Recurso estilístico",
+                3
+            ],
+            [
+                "Figura literaria",
+                2
+            ],
+            [
+                "Lenguaje figurado",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es un sinónimo?",
+        "answers": [
+            [
+                "Palabra con significado similar",
+                5
+            ],
+            [
+                "Palabra equivalente",
+                4
+            ],
+            [
+                "Sinonimia",
+                3
+            ],
+            [
+                "Palabra parecida",
+                2
+            ],
+            [
+                "Término equivalente",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una fábula?",
+        "answers": [
+            [
+                "Relato con moraleja",
+                5
+            ],
+            [
+                "Historia corta",
+                4
+            ],
+            [
+                "Narración didáctica",
+                3
+            ],
+            [
+                "Cuento con enseñanza",
+                2
+            ],
+            [
+                "Una historia",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una rima consonante?",
+        "answers": [
+            [
+                "Coincidencia de consonantes y vocales",
+                5
+            ],
+            [
+                "Rima perfecta",
+                4
+            ],
+            [
+                "Rima total",
+                3
+            ],
+            [
+                "Rima completa",
+                2
+            ],
+            [
+                "Rima exacta",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué autor ecuatoriano escribió Huasipungo?",
+        "answers": [
+            [
+                "Jorge Icaza",
+                5
+            ],
+            [
+                "Icaza",
+                4
+            ],
+            [
+                "Escritor quiteño",
+                3
+            ],
+            [
+                "Autor social",
+                2
+            ],
+            [
+                "Un escritor",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una parábola?",
+        "answers": [
+            [
+                "Narración simbólica",
+                5
+            ],
+            [
+                "Relato con enseñanza moral",
+                4
+            ],
+            [
+                "Cuento didáctico",
+                3
+            ],
+            [
+                "Historia con lección",
+                2
+            ],
+            [
+                "Relato moral ",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es un adjetivo calificativo?",
+        "answers": [
+            [
+                "Palabra que describe",
+                5
+            ],
+            [
+                "Descripción",
+                4
+            ],
+            [
+                "Atributo",
+                3
+            ],
+            [
+                "Modificador",
+                2
+            ],
+            [
+                "Calificativo",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué obra es conocida como La epopeya nacional de Ecuador?",
+        "answers": [
+            [
+                "La epopeya de las grandes derrotas",
+                5
+            ],
+            [
+                "Cumandá",
+                4
+            ],
+            [
+                "La victoria de Junín",
+                3
+            ],
+            [
+                "La epopeya de las grandes batallas",
+                2
+            ],
+            [
+                "La epopeya nacional",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una onomatopeya?",
+        "answers": [
+            [
+                "Palabra que imita sonidos",
+                5
+            ],
+            [
+                "Imitación sonora",
+                4
+            ],
+            [
+                "Sonido escrito",
+                3
+            ],
+            [
+                "Representación auditiva",
+                2
+            ],
+            [
+                "Onomatopeya",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una hipérbole?",
+        "answers": [
+            [
+                "Exageración",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Exageración extrema",
+                3
+            ],
+            [
+                "Recurso literario",
+                2
+            ],
+            [
+                "Hipérbole",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una prosopopeya?",
+        "answers": [
+            [
+                "Personificación",
+                5
+            ],
+            [
+                "Atribución de cualidades humanas",
+                4
+            ],
+            [
+                "Figura retórica",
+                3
+            ],
+            [
+                "Lenguaje figurado",
+                2
+            ],
+            [
+                "Recurso estilístico",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una antítesis?",
+        "answers": [
+            [
+                "Contraposición de ideas",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Oposición",
+                3
+            ],
+            [
+                "Contraste",
+                2
+            ],
+            [
+                "Recurso literario",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió La divina comedia?",
+        "answers": [
+            [
+                "Dante Alighieri",
+                5
+            ],
+            [
+                "Dante",
+                4
+            ],
+            [
+                "Poeta italiano",
+                3
+            ],
+            [
+                "Autor medieval",
+                2
+            ],
+            [
+                "Alighieri",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una anáfora?",
+        "answers": [
+            [
+                "Repetición de palabras al inicio",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Repetición estilística",
+                3
+            ],
+            [
+                "Recurso literario",
+                2
+            ],
+            [
+                "Anáfora",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió El principito?",
+        "answers": [
+            [
+                "Antoine de Saint-Exupéry",
+                5
+            ],
+            [
+                "Saint-Exupéry",
+                4
+            ],
+            [
+                "Escritor francés",
+                3
+            ],
+            [
+                "Autor del siglo XX",
+                2
+            ],
+            [
+                "Antoine",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué autor ecuatoriano escribió La virgen del sol?",
+        "answers": [
+            [
+                "Jorge Carrera Andrade",
+                5
+            ],
+            [
+                "Carrera Andrade",
+                4
+            ],
+            [
+                "Poeta quiteño",
+                3
+            ],
+            [
+                "Autor lírico",
+                2
+            ],
+            [
+                "Narrador ecuatoriano",
+                1
+            ]
+        ]
+    }
+]

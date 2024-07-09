@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Control Panel</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background: #631010;
+                color: rgba(230, 255, 7, 0.966);
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+                font-family: monospace;
+                padding: 4rem;
+                box-sizing: border-box;
+
+                -webkit-touch-callout: none; 
+                -webkit-user-select: none; 
+                -khtml-user-select: none; 
+                -moz-user-select: none; 
+                -ms-user-select: none; 
+                user-select: none; 
+            }
+            .spacer {
+                flex-grow: 1;
+            }
+            .widget {
+                display: flex;
+                flex-direction: column;
+                width: 10vw;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+            .counter-widget .indicator {
+                font-size: 1rem;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .counter-widget .counter {
+                font-size: 5vw;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 18px;
+            }
+            .counter-widget .options {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                flex-direction: column;
+                font-size: 2rem;
+            }
+            .counter-widget .options > span {
+                margin: 0.4rem 0;
+                padding: 0.2rem 1rem;
+            }
+            .counter-widget .custom {
+                display: flex;
+            }
+            .counter-widget .custom input {
+                width: 2ch;
+                flex-grow: 1;
+            }
+            .buttons-widget {
+                gap: 1rem;
+            }
+            .question-set {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .question-indicator {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.2rem;
+            }
+            input {
+                width: 2ch;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                margin: 0 0.5rem;
+                color: rgb(255, 255, 255);
+                font-size: 1.2rem;
+                font-family: monospace;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            }
+            input:focus {
+                color: #f00;
+                border-bottom: 1px solid white;
+            }
+            button,
+            .button {
+                cursor: pointer;
+                border: 0;
+                outline: 0;
+                background: transparent;
+                color: rgb(0, 162, 255);
+                font-size: 1.2rem;
+                font-family: monospace;
+                padding: 0.2rem;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+            }
+            button:hover,
+            .button:hover {
+                color: #f00;
+            }
+            .question-widget h1 {
+                font-size: 1.2rem;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                height: 4rem;
+                overflow: hidden;
+                margin-bottom: 2rem;
+            }
+            .answers {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap: 1rem;
+                flex-grow: 1;
+                height: 1px;
+            }
+            .answers .answer {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 45%;
+            }
+            .answers .answer input {
+                display: none;
+            }
+            .answers .answer label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                height: 15vh;
+                overflow: hidden;
+                width: 100%;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 0.5rem;
+                cursor: pointer;
+                font-size: 2vw;
+                padding: 2vw;
+                box-sizing: border-box;
+            }
+            .answers .answer input:checked ~ label {
+                background-color: rgba(255, 0, 0, 0.4);
+            }
+            @media (max-width: 1000px) {
+                body {
+                    padding: 2rem;
+                    width: 200vw;
+                }
+                .widget {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                }
+                .question-widget h1 {
+                    font-size: 2rem;
+                    height: auto;
+                }
+                .answers {
+                    width: 100vw;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+
+                }
+                .answers .answer {
+                    width: 40%;
+                    flex: 40%;
+                }
+                .answers .answer label {
+                    font-size: 4vw;
+                    padding: 4vw;
+                }
+                .question-indicator {
+                    font-size: 2rem;
+                }
+                .question-indicator input {
+                    font-size: 2rem;
+                }
+                .question-indicator button {
+                    font-size: 2rem;
+                }
+                .counter-widget .counter {
+                    font-size: 10vw;
+                }
+                .counter-widget .options {
+                    font-size: 4rem;
+                }
+                .counter-widget .options > span {
+                    margin: 0.8rem 0;
+                    padding: 0.4rem 2rem;
+                }
+                .counter-widget .custom input {
+                    width: 4ch;
+                }
+                .counter-widget .custom button {
+                    font-size: 2rem;
+                }
+                div[style*="position: absolute; bottom: 0; right: 0; text-align: right"] {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="widget counter-widget" data-team="a">
+            <div class="indicator">Equipo 1</div>
+            <div class="counter">
+                <span>0</span>
+            </div>
+            <div class="options">
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+            </div>
+            <div class="spacer"></div>
+            <div class="custom">
+                <input type="text" placeholder="0" />
+                <button>+</button>
+            </div>
+        </div>
+        <div class="widget counter-widget" data-team="b">
+            <div class="indicator">Equipo 2</div>
+            <div class="counter">
+                <span>0</span>
+            </div>
+            <div class="options">
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+                <span class="button" data-value="10">+<span>10</span></span>
+            </div>
+            <div class="spacer"></div>
+            <div class="custom">
+                <input type="text" placeholder="0" />
+                <button>+</button>
+            </div>
+        </div>
+        <div class="widget buttons-widget">
+            <button data-event="strike-1">X</button>
+            <button data-event="strike-2">XX</button>
+            <button>Perdiste</button>
+            <!-- Audio files -->
+            <!-- buzzer.mp3, correct.mp3, and wrong.mp3 -->
+            <span>Llamada</span>
+            <audio controls>
+                <source src="assets/llamada.mp3" type="audio/mpeg" />
+            </audio>
+            <span>correcto</span>
+            <audio controls>
+                <source src="assets/correcto.mp3" type="audio/mpeg" />
+            </audio>
+            <span>incorrecto</span>
+            <audio controls>
+                <source src="assets/incorrecto.mp3" type="audio/mpeg" />
+            </audio>
+            <!-- Audio styling -->
+            <style>
+                audio {
+                    width: 100%;
+                }
+            </style>
+            <div class="spacer"></div>
+            <div class="question-set">
+                <div class="question-indicator">
+                    <span>Q</span>
+                    <input type="text" />
+                    <span>/</span>
+                    <span>10</span>
+                    <div class="spacer"></div>
+                    <button>++</button>
+                </div>
+                <button>Pregunta</button>
+            </div>
+        </div>
+        <div class="spacer question-widget widget">
+            <h1>
+                Q: Question.
+            </h1>
+            <div class="answers">
+                <div class="answer">
+                    <input type="checkbox" name="answer-1" id="answer-1" />
+                    <label for="answer-1">answer-1 (200)</label>
+                </div>
+                <div class="answer">
+                    <input type="checkbox" name="answer-2" id="answer-2" />
+                    <label for="answer-2">answer-2 (200)</label>
+                </div>
+                <div class="answer">
+                    <input type="checkbox" name="answer-3" id="answer-3" />
+                    <label for="answer-3">answer-3 (200)</label>
+                </div>
+                <div class="answer">
+                    <input type="checkbox" name="answer-4" id="answer-4" />
+                    <label for="answer-4">answer-4 (200)</label>
+                </div>
+                <div class="answer">
+                    <input type="checkbox" name="answer-5" id="answer-5" />
+                    <label for="answer-5">answer-5 (200)</label>
+                </div>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 0; right: 0; text-align: right">
+            <pre>
+                Tips:
+                - Con esta combinación shift + click, puedes restar la cantidad de puntos que elijas,
+                  por ejemplo en una penalización. 
+                - El contador puede llegar a numeros negativos, dependiendo de la penalización.
+                - Puedes ir a la pregunta que quieras ingresando un número y presionando el botón Pregunta.
+                - Tambíen puedes sumar o restar enormes cantidades por teclado. 
+                </pre
+            >
+        </div>
+        <script>
+            const socket = new WebSocket(
+                window.location.protocol === "https:"
+                    ? "wss://" + window.location.host + "/ws"
+                    : "ws://" + window.location.host + "/ws"
+            );
+
+            socket.onopen = function (e) {
+                console.log("[open] Connection established");
+                console.log("Sending to server");
+            };
+
+            socket.onmessage = function (event) {
+                console.log(
+                    `[message] Data received from server: ${event.data}`
+                );
+            };
+
+            socket.onclose = function (event) {
+                if (event.wasClean) {
+                    document.write(
+                        `[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`
+                    );
+                } else {
+                    // e.g. server process killed or network down
+                    // event.code is usually 1006 in this case
+                    document.write("[close] Connection died");
+                }
+            };
+
+            socket.onerror = function (error) {
+                console.log(`[error]`);
+            };
+
+            const points = {
+                a: 0,
+                b: 0,
+            };
+
+            document
+                .querySelectorAll(".counter-widget .button")
+                .forEach((button) => {
+                    button.addEventListener("click", () => {
+                        points[
+                            button.closest(".counter-widget").dataset.team
+                        ] +=
+                            ((event.shiftKey && -1) || 1) *
+                            parseInt(button.dataset.value);
+                        updatePoints();
+                    });
+                });
+            document
+                .querySelectorAll(".counter-widget .custom button")
+                .forEach((button) => {
+                    button.addEventListener("click", () => {
+                        points[
+                            button.closest(".counter-widget").dataset.team
+                        ] += parseInt(button.previousElementSibling.value);
+                        button.previousElementSibling.value = "";
+                        updatePoints();
+                    });
+                });
+            document
+                .querySelectorAll(".counter-widget .custom input")
+                .forEach((input) => {
+                    input.addEventListener("keyup", (e) => {
+                        if (e.key === "Enter") {
+                            e.target.blur();
+                            points[
+                                input.closest(".counter-widget").dataset.team
+                            ] += parseInt(input.value);
+                            e.target.value = "";
+                            updatePoints();
+                        }
+                    });
+                });
+            document
+                .querySelectorAll(".buttons-widget button")
+                .forEach((button) => {
+                    button.addEventListener("click", () => {
+                        if (button.dataset.event) {
+                            socket.send(
+                                JSON.stringify({
+                                    type: "event",
+                                    event: button.dataset.event,
+                                })
+                            );
+                        }
+                    });
+                });
+            document
+                .querySelectorAll(".question-widget .answer input")
+                .forEach((input, i) => {
+                    input.addEventListener("change", () => {
+                        socket.send(
+                            JSON.stringify({
+                                type: "flip",
+                                n: i + 1,
+                                status: input.checked,
+                            })
+                        );
+                        // if the new value is true, play the assets/correct.mp3 file from the beginning
+                        if (input.checked && !window.shiftPressed) {
+                            // document.querySelectorAll("audio")[1].currentTime = 0;
+                            // document.querySelectorAll("audio")[1].play();
+                        }
+                    });
+                });
+            function updatePoints() {
+                document
+                    .querySelectorAll(".counter-widget .counter span")
+                    .forEach((span, index) => {
+                        span.innerText = points[Object.keys(points)[index]];
+                    });
+                socket.send(
+                    JSON.stringify({
+                        type: "points",
+                        points,
+                    })
+                );
+            }
+
+            window.shiftPressed = false;
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "m") {
+                    window.shiftPressed = true;
+                }
+            });
+            window.addEventListener("keyup", (e) => {
+                if (e.key === "m") {
+                    window.shiftPressed = false;
+                }
+            });
+
+            const questions = [
+    {
+        "question": "¿Qué es un soneto?",
+        "answers": [
+            [
+                "Poema de catorce versos",
+                5
+            ],
+            [
+                "Composición poética",
+                4
+            ],
+            [
+                "Forma fija de la poesía",
+                3
+            ],
+            [
+                "Versos de arte mayor",
+                2
+            ],
+            [
+                "Rima consonante",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es el género literario de La Ilíada?",
+        "answers": [
+            [
+                "Épico",
+                5
+            ],
+            [
+                "Poema épico",
+                4
+            ],
+            [
+                "Epopeya",
+                3
+            ],
+            [
+                "Literatura griega antigua",
+                2
+            ],
+            [
+                "Narrativa heroica",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una hipérbole?",
+        "answers": [
+            [
+                "Exageración intencional",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Lenguaje figurado",
+                3
+            ],
+            [
+                "Exageración",
+                2
+            ],
+            [
+                "Figura literaria",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es el tema principal de Romeo y Julieta?",
+        "answers": [
+            [
+                "Amor trágico",
+                5
+            ],
+            [
+                "El amor imposible",
+                4
+            ],
+            [
+                "La tragedia de los amantes",
+                3
+            ],
+            [
+                "La vida de Shakespeare",
+                2
+            ],
+            [
+                "Amor y muerte",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una metáfora?",
+        "answers": [
+            [
+                "Figura retórica",
+                5
+            ],
+            [
+                "Comparación implícita",
+                4
+            ],
+            [
+                "Lenguaje figurado",
+                3
+            ],
+            [
+                "Figura literaria",
+                2
+            ],
+            [
+                "Imaginación creativa",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió Cumandá?",
+        "answers": [
+            [
+                "Juan León Mera",
+                5
+            ],
+            [
+                "Novelista del siglo XIX",
+                4
+            ],
+            [
+                "Autor ecuatoriano",
+                3
+            ],
+            [
+                "Escritor ambateño",
+                2
+            ],
+            [
+                "Juan León",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Cuál es la obra más conocida de Gabriel García Márquez?",
+        "answers": [
+            [
+                "Cien años de soledad",
+                5
+            ],
+            [
+                "La historia de Macondo",
+                4
+            ],
+            [
+                "La saga de los Buendía",
+                3
+            ],
+            [
+                "El realismo mágico",
+                2
+            ],
+            [
+                "La novela del Nobel colombiano",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién es el autor de La Odisea?",
+        "answers": [
+            [
+                "Homero",
+                5
+            ],
+            [
+                "Poeta griego",
+                4
+            ],
+            [
+                "JEscritor de La Ilíada",
+                3
+            ],
+            [
+                "Bardo de la antigüedad",
+                2
+            ],
+            [
+                "Narrador de aventuras",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una anáfora?",
+        "answers": [
+            [
+                "Figura retórica",
+                5
+            ],
+            [
+                "Repetición de palabras",
+                4
+            ],
+            [
+                "Recurso estilístico",
+                3
+            ],
+            [
+                "Figura literaria",
+                2
+            ],
+            [
+                "Lenguaje figurado",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es un sinónimo?",
+        "answers": [
+            [
+                "Palabra con significado similar",
+                5
+            ],
+            [
+                "Palabra equivalente",
+                4
+            ],
+            [
+                "Sinonimia",
+                3
+            ],
+            [
+                "Palabra parecida",
+                2
+            ],
+            [
+                "Término equivalente",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una fábula?",
+        "answers": [
+            [
+                "Relato con moraleja",
+                5
+            ],
+            [
+                "Historia corta",
+                4
+            ],
+            [
+                "Narración didáctica",
+                3
+            ],
+            [
+                "Cuento con enseñanza",
+                2
+            ],
+            [
+                "Una historia",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una rima consonante?",
+        "answers": [
+            [
+                "Coincidencia de consonantes y vocales",
+                5
+            ],
+            [
+                "Rima perfecta",
+                4
+            ],
+            [
+                "Rima total",
+                3
+            ],
+            [
+                "Rima completa",
+                2
+            ],
+            [
+                "Rima exacta",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué autor ecuatoriano escribió Huasipungo?",
+        "answers": [
+            [
+                "Jorge Icaza",
+                5
+            ],
+            [
+                "Icaza",
+                4
+            ],
+            [
+                "Escritor quiteño",
+                3
+            ],
+            [
+                "Autor social",
+                2
+            ],
+            [
+                "Un escritor",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una parábola?",
+        "answers": [
+            [
+                "Narración simbólica",
+                5
+            ],
+            [
+                "Relato con enseñanza moral",
+                4
+            ],
+            [
+                "Cuento didáctico",
+                3
+            ],
+            [
+                "Historia con lección",
+                2
+            ],
+            [
+                "Relato moral ",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es un adjetivo calificativo?",
+        "answers": [
+            [
+                "Palabra que describe",
+                5
+            ],
+            [
+                "Descripción",
+                4
+            ],
+            [
+                "Atributo",
+                3
+            ],
+            [
+                "Modificador",
+                2
+            ],
+            [
+                "Calificativo",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué obra es conocida como La epopeya nacional de Ecuador?",
+        "answers": [
+            [
+                "La epopeya de las grandes derrotas",
+                5
+            ],
+            [
+                "Cumandá",
+                4
+            ],
+            [
+                "La victoria de Junín",
+                3
+            ],
+            [
+                "La epopeya de las grandes batallas",
+                2
+            ],
+            [
+                "La epopeya nacional",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una onomatopeya?",
+        "answers": [
+            [
+                "Palabra que imita sonidos",
+                5
+            ],
+            [
+                "Imitación sonora",
+                4
+            ],
+            [
+                "Sonido escrito",
+                3
+            ],
+            [
+                "Representación auditiva",
+                2
+            ],
+            [
+                "Onomatopeya",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una hipérbole?",
+        "answers": [
+            [
+                "Exageración",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Exageración extrema",
+                3
+            ],
+            [
+                "Recurso literario",
+                2
+            ],
+            [
+                "Hipérbole",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una prosopopeya?",
+        "answers": [
+            [
+                "Personificación",
+                5
+            ],
+            [
+                "Atribución de cualidades humanas",
+                4
+            ],
+            [
+                "Figura retórica",
+                3
+            ],
+            [
+                "Lenguaje figurado",
+                2
+            ],
+            [
+                "Recurso estilístico",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una antítesis?",
+        "answers": [
+            [
+                "Contraposición de ideas",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Oposición",
+                3
+            ],
+            [
+                "Contraste",
+                2
+            ],
+            [
+                "Recurso literario",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió La divina comedia?",
+        "answers": [
+            [
+                "Dante Alighieri",
+                5
+            ],
+            [
+                "Dante",
+                4
+            ],
+            [
+                "Poeta italiano",
+                3
+            ],
+            [
+                "Autor medieval",
+                2
+            ],
+            [
+                "Alighieri",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué es una anáfora?",
+        "answers": [
+            [
+                "Repetición de palabras al inicio",
+                5
+            ],
+            [
+                "Figura retórica",
+                4
+            ],
+            [
+                "Repetición estilística",
+                3
+            ],
+            [
+                "Recurso literario",
+                2
+            ],
+            [
+                "Anáfora",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Quién escribió El principito?",
+        "answers": [
+            [
+                "Antoine de Saint-Exupéry",
+                5
+            ],
+            [
+                "Saint-Exupéry",
+                4
+            ],
+            [
+                "Escritor francés",
+                3
+            ],
+            [
+                "Autor del siglo XX",
+                2
+            ],
+            [
+                "Antoine",
+                1
+            ]
+        ]
+    },
+    {
+        "question": "¿Qué autor ecuatoriano escribió La virgen del sol?",
+        "answers": [
+            [
+                "Jorge Carrera Andrade",
+                5
+            ],
+            [
+                "Carrera Andrade",
+                4
+            ],
+            [
+                "Poeta quiteño",
+                3
+            ],
+            [
+                "Autor lírico",
+                2
+            ],
+            [
+                "Narrador ecuatoriano",
+                1
+            ]
+        ]
+    }
+];
+            let currentQuestion = 0;
+
+            function updateQuestion(question) {
+                document.querySelector(".question-widget h1").innerText =
+                    question.question;
+                document.querySelector(
+                    ".question-indicator span:nth-of-type(3)"
+                ).innerText = questions.length;
+                document.querySelector(".question-indicator input").value =
+                    currentQuestion + 1;
+                document
+                    .querySelectorAll(".question-widget .answer label")
+                    .forEach((label, i) => {
+                        label.innerText =
+                            (question.answers[i] &&
+                                question.answers[i][0] +
+                                    " (" +
+                                    question.answers[i][1] +
+                                    ")") ||
+                            "undefined";
+                    });
+                document
+                    .querySelectorAll(".question-widget .answer input")
+                    .forEach((input, i) => {
+                        input.checked = false;
+                    });
+                document
+                    .querySelectorAll(".counter-widget .options")
+                    .forEach((options) => {
+                        options
+                            .querySelectorAll(".button")
+                            .forEach((button, i) => {
+                                button.dataset.value =
+                                    (question.answers[i] &&
+                                        question.answers[i][1]) ||
+                                    0;
+                                button.innerText =
+                                    (question.answers[i] &&
+                                        "+" +
+                                            question.answers[i][1]
+                                                .toString()
+                                                .padStart(2, "0")) ||
+                                    "-";
+                            });
+                    });
+                socket.send(
+                    JSON.stringify({
+                        type: "question",
+                        question,
+                    })
+                );
+            }
+
+            document
+                .querySelector(".question-indicator input")
+                .addEventListener("keyup", (e) => {
+                    if (e.key === "Enter") {
+                        currentQuestion = parseInt(e.target.value) - 1;
+                        e.target.blur();
+                        updateQuestion(questions[currentQuestion]);
+                    }
+                });
+            document
+                .querySelector(".question-indicator button")
+                .addEventListener("click", () => {
+                    currentQuestion++;
+                    if (currentQuestion >= questions.length) {
+                        currentQuestion--;
+                    }
+                    updateQuestion(questions[currentQuestion]);
+                });
+            document
+                .querySelector(".question-set > button")
+                .addEventListener("click", () => {
+                    currentQuestion = parseInt(
+                        document.querySelector(".question-set input").value - 1
+                    );
+                    updateQuestion(questions[currentQuestion]);
+                });
+
+            window.onload = () => {
+                currentQuestion = 0;
+                setTimeout(
+                    () => updateQuestion(questions[currentQuestion]),
+                    500
+                );
+            };
+            // heartbeat every 60 seconds for CloudFlare
+            setInterval(() => {
+                socket.send(
+                    JSON.stringify({
+                        type: "heartbeat",
+                    })
+                );
+            }, 60000);
+        </script>
+    </body>
+</html>

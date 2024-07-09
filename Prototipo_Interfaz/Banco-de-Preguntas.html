@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Preguntas "Sinonimos y Antonimos"</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <script>
+        const questions = [
+                {
+                    question: "Puntuación.",
+                    answers: [
+                        ["A", 5],
+                        ["B", 4],
+                        ["C", 3],
+                        ["D", 2],
+                        ["E", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -rápido-?",
+                    answers: [
+                        ["Expedito", 5],
+                        ["Presto", 4],
+                        ["Ligero", 3],
+                        ["Ágil", 2],
+                        ["Veloz", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Feliz-?",
+                    answers: [
+                        ["Eufórico", 5],
+                        ["Jubiliso", 4],
+                        ["Dichoso", 3],
+                        ["Alegre", 2],
+                        ["Contento", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Grande-?",
+                    answers: [
+                        ["Ingente", 5],
+                        ["Colosal", 4],
+                        ["Inmesso", 3],
+                        ["Gigante", 2],
+                        ["Enorme", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Inteligente-?",
+                    answers: [
+                        ["Lucido", 5],
+                        ["Agudo", 4],
+                        ["Perpicaz", 3],
+                        ["Sagaz", 2],
+                        ["Listo", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Bello-?",
+                    answers: [
+                        ["Agraciado", 5],
+                        ["Precioso", 4],
+                        ["Atractivo", 3],
+                        ["Guapo", 2],
+                        ["Hermoso", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Valiente-?",
+                    answers: [
+                        ["Valeroso", 5],
+                        ["Bravo", 4],
+                        ["Osado", 3],
+                        ["Audaz", 2],
+                        ["Intrépido", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Caminar-?",
+                    answers: [
+                        ["Marchar", 5],
+                        ["Recorrer", 4],
+                        ["Deambular", 3],
+                        ["Pasear", 2],
+                        ["Andar", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Decir-?",
+                    answers: [
+                        ["Articular", 5],
+                        ["Afirmar", 4],
+                        ["Declarar", 3],
+                        ["Manifestar", 2],
+                        ["Expresar", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Pequeño-?",
+                    answers: [
+                        ["Compacto", 5],
+                        ["Diminuto", 4],
+                        ["Reducido", 3],
+                        ["Chico", 2],
+                        ["Minúsculo", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el sinónimo de -Fuerte-?",
+                    answers: [
+                        ["Vigoros", 5],
+                        ["Firme", 4],
+                        ["Robusto", 3],
+                        ["Resistente", 2],
+                        ["Potente", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Alto-?",
+                    answers: [
+                        ["Microscopico", 5],
+                        ["Corto", 4],
+                        ["Reducido", 3],
+                        ["Bajo", 2],
+                        ["Pequeño", 1],
+                    ]
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Fuerte-?",
+                    answers: [
+                        ["Flojo", 5],
+                        ["Vulnerable", 4],
+                        ["Endeble", 3],
+                        ["Frágil", 2],
+                        ["Débil", 1],
+                    ]
+                },
+
+                {
+                    question: "¿Cuál es el antónimo de -Frío-?",
+                    answers: [
+                        ["Cálido", 5],
+                        ["Templado", 4],
+                        ["Caluroso", 3],
+                        ["Ardiente", 2],
+                        ["Caliente", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Alegre-?",
+                    answers: [
+                        ["Sombrío", 5],
+                        ["Afligido", 4],
+                        ["Desdichado", 3],
+                        ["Melancólico", 2],
+                        ["Triste", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Rápido-?",
+                    answers: [
+                        ["Calmado", 5],
+                        ["Despacio", 4],
+                        ["Tardío", 3],
+                        ["Pausado", 2],
+                        ["Lento", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Fácil-?",
+                    answers: [
+                        ["Intrincado", 5],
+                        ["Arduo", 4],
+                        ["Complejo", 3],
+                        ["Complicado", 2],
+                        ["Dificíl", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Duro-?",
+                    answers: [
+                        ["Flácido", 5],
+                        ["Tierno", 4],
+                        ["Suave", 3],
+                        ["Frágil", 2],
+                        ["Blando", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Nuevo?",
+                    answers: [
+                        ["Pasado", 5],
+                        ["Desgastado", 4],
+                        ["Usado", 3],
+                        ["Antiguo", 2],
+                        ["Viejo", 1],
+                    ],
+                },
+                {
+                    question: "¿Cuál es el antónimo de -Firme-?",
+                    answers: [
+                        ["Voluble", 5],
+                        ["Precario", 4],
+                        ["Debil", 3],
+                        ["Frágil", 2],
+                        ["Inestable", 1],
+                    ],
+                },
+            ]
+    </script>
+    <template id="question">
+        <div class="question">
+            <h3 class="question-title"></h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Respuestas</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </template>
+    <div id="question-container"></div>
+    <script>
+        const questionTemplate = document.getElementById("question");
+        const questionContainer = document.getElementById("question-container");
+        questions.forEach((question, qid) => {
+            const questionElement = questionTemplate.content.cloneNode(true);
+            questionElement.querySelector(".question-title").innerText = `${qid + 1}. ${question.question}`;
+            const tbody = questionElement.querySelector("tbody");
+            question.answers.forEach(answer => {
+                const tr = document.createElement("tr");
+                const td1 = document.createElement("td");
+                td1.innerText = answer[0];
+                const td2 = document.createElement("td");
+                td2.innerText = answer[1];
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbody.appendChild(tr);
+            });
+            questionContainer.appendChild(questionElement);
+        });
+    </script>
+    <style>
+        body {
+            width: 80ch;
+        }
+        .question {
+            margin-bottom: 2rem;
+        }
+    </style>
+    <script>
+        const order = [15, 20, 4, 40, 3, 30, 14, 7, 22, 34, 16, 17, 5, 27, 29, 39, 11, 25, 28, 10, 26, 6, 2, 38];
+        const arr = [];
+        for (const num of order) {
+            arr.push(questions[num - 1]);
+        }
+        console.log(JSON.stringify(arr, null, 4));
+    </script>
+</body>
+</html>
